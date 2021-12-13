@@ -1,6 +1,6 @@
 # AVIATA MAVSDK Fork
 This fork of MAVSDK contains our custom version of mavlink.
-Build and install locally (to MAVSDK/install/) with:
+Normally, this will be built as part of aviata/controls, but you can build and install locally (to MAVSDK/install/) with:
 ```bash
 cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=install -DBUILD_TESTS=OFF -Bbuild/default -H.
 cmake --build build/default --target install
