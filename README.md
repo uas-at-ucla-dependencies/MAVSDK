@@ -1,7 +1,10 @@
-<img alt="MAVSDK" src="https://mavsdk.mavlink.io/main/assets/site/sdk_logo_full.png" width="400">
-
-[![GitHub Actions Status](https://github.com/mavlink/MAVSDK/workflows/Build%20and%20Test/badge.svg?branch=main)](https://github.com/mavlink/MAVSDK/actions?query=branch%3Amain)
-[![Coverage Status](https://coveralls.io/repos/github/mavlink/MAVSDK/badge.svg?branch=main)](https://coveralls.io/github/mavlink/MAVSDK?branch=main)
+# AVIATA MAVSDK Fork
+This fork of MAVSDK contains our custom version of mavlink.
+Build and install locally (to MAVSDK/install/) with:
+```bash
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=install -DBUILD_TESTS=OFF -Bbuild/default -H.
+cmake --build build/default --target install
+```
 
 ## Description
 
