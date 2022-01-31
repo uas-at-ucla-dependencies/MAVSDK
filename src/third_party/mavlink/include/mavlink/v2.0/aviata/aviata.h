@@ -206,7 +206,8 @@ typedef enum MAV_CMD
    MAV_CMD_AVIATA_FINALIZE_DOCKING=43001, /* Configure the mixer once docked based on the docking slot and the missing drones. Also update PID values, flight controller orientation, etc. |docking slot| slot number of 1st missing drone, or NaN if not missing| slot number of 2nd missing drone, or NaN if not missing| slot number of 3rd missing drone, or NaN if not missing| slot number of 4th missing drone, or NaN if not missing| slot number of 5th missing drone, or NaN if not missing| slot number of 6th missing drone, or NaN if not missing|  */
    MAV_CMD_AVIATA_SET_CONFIGURATION=43002, /* Update the mixer according to which drones are missing. |Reserved (default:NaN)| slot number of 1st missing drone, or NaN if not missing| slot number of 2nd missing drone, or NaN if not missing| slot number of 3rd missing drone, or NaN if not missing| slot number of 4th missing drone, or NaN if not missing| slot number of 5th missing drone, or NaN if not missing| slot number of 6th missing drone, or NaN if not missing|  */
    MAV_CMD_AVIATA_SET_STANDALONE=43003, /* Set mixer and parameters back to the values for a standalone drone. |Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
-   MAV_CMD_ENUM_END=43004, /*  | */
+   MAV_CMD_AVIATA_SET_ATT_OFFSET=43004, /* Set the attitude offset of the drone so that attitude control agrees with other drones on the AVIATA frame. || | | | Reserved (default:0)| Reserved (default:0)| Reserved (default:0)|  */
+   MAV_CMD_ENUM_END=43005, /*  | */
 } MAV_CMD;
 #endif
 
