@@ -20,6 +20,11 @@ MavlinkPassthrough::Result MavlinkPassthrough::send_message(mavlink_message_t& m
     return _impl->send_message(message);
 }
 
+void MavlinkPassthrough::send_command_long_async(const CommandLong& command, std::function<void(MavlinkPassthrough::Result)> callback)
+{
+    return _impl->send_command_long_async(command, callback);
+}
+
 MavlinkPassthrough::Result MavlinkPassthrough::send_command_int(const CommandInt& command)
 {
     return _impl->send_command_int(command);

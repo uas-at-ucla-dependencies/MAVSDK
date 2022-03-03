@@ -115,6 +115,14 @@ public:
     };
 
     /**
+     * @brief Send a MAVLink command_long asynchronously. Custom addition by UAS@UCLA.
+     *
+     * @param command Command to send.
+     * @param callback Callback to be called upon command result.
+     */
+    void send_command_long_async(const CommandLong& command, std::function<void(Result)> callback);
+
+    /**
      * @brief Send a MAVLink command_long.
      *
      * @param command Command to send.

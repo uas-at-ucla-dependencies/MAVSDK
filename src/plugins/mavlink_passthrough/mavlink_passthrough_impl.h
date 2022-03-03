@@ -21,6 +21,7 @@ public:
     void disable() override;
 
     MavlinkPassthrough::Result send_message(mavlink_message_t& message);
+    void send_command_long_async(const MavlinkPassthrough::CommandLong& command, std::function<void(MavlinkPassthrough::Result)> callback);
     MavlinkPassthrough::Result send_command_long(const MavlinkPassthrough::CommandLong& command);
     MavlinkPassthrough::Result send_command_int(const MavlinkPassthrough::CommandInt& command);
 

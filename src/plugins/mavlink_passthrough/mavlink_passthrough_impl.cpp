@@ -42,6 +42,30 @@ MavlinkPassthrough::Result MavlinkPassthroughImpl::send_message(mavlink_message_
     return MavlinkPassthrough::Result::Success;
 }
 
+void MavlinkPassthroughImpl::send_command_long_async(
+    const MavlinkPassthrough::CommandLong& command, std::function<void(MavlinkPassthrough::Result)> callback)
+{
+    MavlinkCommandSender::CommandLong command_internal{};
+    command_internal.target_system_id = command.target_sysid;
+    command_internal.target_component_id = command.target_compid;
+    command_internal.command = command.command;
+    command_internal.params.param1 = command.param1;
+    command_internal.params.param2 = command.param2;
+    command_internal.params.param3 = command.param3;
+    command_internal.params.param4 = command.param4;
+    command_internal.params.param5 = command.param5;
+    command_internal.params.param6 = command.param6;
+    command_internal.params.param7 = command.param7;
+
+    MavlinkCommandSender::CommandResultCallback internal_callback = nullptr;
+    if (callback) {
+        internal_callback = [callback](MavlinkCommandSender::Result result, float) {
+            callback(to_mavlink_passthrough_result_from_mavlink_commands_result(result));
+        };
+    }
+    _parent->send_command_async(command_internal, internal_callback);
+}
+
 MavlinkPassthrough::Result
 MavlinkPassthroughImpl::send_command_long(const MavlinkPassthrough::CommandLong& command)
 {
